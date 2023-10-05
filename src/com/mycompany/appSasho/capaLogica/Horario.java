@@ -13,19 +13,19 @@ import java.time.LocalTime;
  */
 public class Horario {
     
-    private int codHorario;
+    private String codHorario;
     private LocalDate fecha;
     private LocalTime horaInicio;
     private LocalTime horaFin;
 
-    public Horario(int codHorario, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
+    public Horario(String codHorario, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
         this.codHorario = codHorario;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
     }
 
-    public int getCodHorario() {
+    public String getCodHorario() {
         return codHorario;
     }
     
@@ -41,7 +41,7 @@ public class Horario {
         return horaFin;
     }
 
-    public void setCodHorario(int codHorario) {
+    public void setCodHorario(String codHorario) {
         this.codHorario = codHorario;
     }
 

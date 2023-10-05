@@ -24,11 +24,11 @@ public class DBConnection {
     private static final String user = "postgres";
     private static final String password = "123456";
     
-    private static Statement query = null;
-    private static PreparedStatement p_query = null;
-    private static ResultSet result = null;
+    public static Statement query = null;
+    public static PreparedStatement p_query = null;
+    public static ResultSet result = null;
     
-    private static Connection conn = null;
+    public static Connection conn = null;
     
     
     private static void conectar() throws SQLException {
