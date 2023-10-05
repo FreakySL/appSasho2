@@ -5,15 +5,24 @@
 package com.mycompany.appSasho.capaPresentacion;
 
 import com.mycompany.appSasho.capaLogica.DBConnection;
+import com.raven.datechooser.SelectedDate;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
 
 /**
  *
  * @author santi
  */
 public class appSashoFrame extends javax.swing.JFrame {
+
+    JDialog_VentanaEnConstruccion JDConst = new JDialog_VentanaEnConstruccion(this, true);
+    JDialog_clientenoexist JDNoExiste = new JDialog_clientenoexist(this, true);
+    JDialog_AgregadoExito JDAddExito = new JDialog_AgregadoExito(this, true);
+
 
     /**
      * Creates new form JFrame
@@ -32,6 +41,8 @@ public class appSashoFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JPan_Header = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         JPan_Contenedor = new javax.swing.JPanel();
         JPan_MenuPrincipal = new javax.swing.JPanel();
         JBtn_GestTurnos = new javax.swing.JPanel();
@@ -52,22 +63,118 @@ public class appSashoFrame extends javax.swing.JFrame {
         JLb_BtnGestProfesores = new javax.swing.JLabel();
         JBtn_AgregarParticipantes = new javax.swing.JPanel();
         JLb_BtnAgregarParticipantes = new javax.swing.JLabel();
-        JPan_Header = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        JPan_AgregarAlumnosACursos = new javax.swing.JPanel();
+        JCB_SelectCurso = new javax.swing.JComboBox<>();
+        JBtn_SetCursoSelected = new javax.swing.JPanel();
+        JLb_BtnSetCursoSelected = new javax.swing.JLabel();
+        JScroll_AgregarAlumnos = new javax.swing.JScrollPane();
+        JTable_AgregarAlumnos = new javax.swing.JTable();
+        JBtn_SetCursoSelected1 = new javax.swing.JPanel();
+        JLb_BtnSetCursoSelected1 = new javax.swing.JLabel();
+        JPan_AgregarTurno1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        dateChooser1 = new com.raven.datechooser.DateChooser();
+        JBtn_SiguienteAT1 = new javax.swing.JPanel();
+        JLb_BtnSiguienteAT1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tPick_HoraInicio = new com.raven.swing.TimePicker();
+        tPick_HoraFin = new com.raven.swing.TimePicker();
+        JPan_AgregarTurno2 = new javax.swing.JPanel();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        JBtn_AnteriorAT2 = new javax.swing.JPanel();
+        JLb_BtnAnteriorAT3 = new javax.swing.JLabel();
+        JBtn_SiguienteAT2 = new javax.swing.JPanel();
+        JLb_BtnSiguienteAT2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jCB_Servicio = new javax.swing.JComboBox<>();
+        jSpin_CostoAT2 = new javax.swing.JSpinner();
+        JTF_DNIBuscar = new javax.swing.JTextField();
+        jBut_BuscCliente = new javax.swing.JButton();
+        jLab_ApeBusc = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        jLab_NombreBusc = new javax.swing.JLabel();
+        JPan_AgregarTurno3 = new javax.swing.JPanel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        JBtn_SiguienteAT3 = new javax.swing.JPanel();
+        JLb_BtnFinalizarAT3 = new javax.swing.JLabel();
+        completeCosto = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        JBtn_AnteriorAT3 = new javax.swing.JPanel();
+        JLb_BtnAnteriorAT4 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        completeID = new javax.swing.JLabel();
+        completeNombre = new javax.swing.JLabel();
+        completeApe = new javax.swing.JLabel();
+        completeDia = new javax.swing.JLabel();
+        completehinicio = new javax.swing.JLabel();
+        completeHFin = new javax.swing.JLabel();
+        completeTServicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 700));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPan_Contenedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 51, 255), 3));
+        JPan_Header.setBackground(new java.awt.Color(255, 145, 0));
+        JPan_Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/appSasho/images/SaloIdioLogo.png"))); // NOI18N
+        JPan_Header.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(JPan_Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 100));
+
+        JPan_Contenedor.setBackground(new java.awt.Color(255, 205, 140));
+        JPan_Contenedor.setPreferredSize(new java.awt.Dimension(800, 412));
         JPan_Contenedor.setLayout(new java.awt.CardLayout());
 
+        JPan_MenuPrincipal.setBackground(new java.awt.Color(255, 205, 140));
         JPan_MenuPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JBtn_GestTurnos.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GestTurnos.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GestTurnos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         JLb_BtnGestTurnos.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGestTurnos.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGestTurnos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGestTurnos.setText("Gestionar turnos");
+        JLb_BtnGestTurnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLb_BtnGestTurnosMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JBtn_GestTurnosLayout = new javax.swing.GroupLayout(JBtn_GestTurnos);
         JBtn_GestTurnos.setLayout(JBtn_GestTurnosLayout);
@@ -84,12 +191,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGestTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GestTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GestTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
-        JBtn_GestClientes.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GestClientes.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GestClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_GestClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_GestClientesMouseClicked(evt);
+            }
+        });
 
         JLb_BtnGestClientes.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGestClientes.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGestClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGestClientes.setText("Gestionar clientes");
 
@@ -108,12 +221,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGestClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GestClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GestClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
-        JBtn_GestCursos.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GestCursos.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GestCursos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_GestCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_GestCursosMouseClicked(evt);
+            }
+        });
 
         JLb_BtnGestCursos.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGestCursos.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGestCursos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGestCursos.setText("Gestionar cursos");
 
@@ -132,12 +251,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGestCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GestCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GestCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
-        JBtn_GestAlumnos.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GestAlumnos.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GestAlumnos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_GestAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_GestAlumnosMouseClicked(evt);
+            }
+        });
 
         JLb_BtnGestAlumnos.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGestAlumnos.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGestAlumnos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGestAlumnos.setText("Gestionar alumnos");
 
@@ -156,12 +281,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGestAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GestAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GestAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
-        JBtn_RecomendarCursos.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_RecomendarCursos.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_RecomendarCursos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_RecomendarCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_RecomendarCursosMouseClicked(evt);
+            }
+        });
 
         JLb_BtnRecomendarCursos.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnRecomendarCursos.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnRecomendarCursos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnRecomendarCursos.setText("Recomendar Cursos");
 
@@ -180,14 +311,20 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnRecomendarCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_RecomendarCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_RecomendarCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
 
-        JBtn_MostrarAgenda.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_MostrarAgenda.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_MostrarAgenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         JLb_BtnMostrarAgenda.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnMostrarAgenda.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnMostrarAgenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_BtnMostrarAgenda.setText("Gestionar profesores");
+        JLb_BtnMostrarAgenda.setText("Mostrar agenda");
+        JLb_BtnMostrarAgenda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLb_BtnMostrarAgendaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JBtn_MostrarAgendaLayout = new javax.swing.GroupLayout(JBtn_MostrarAgenda);
         JBtn_MostrarAgenda.setLayout(JBtn_MostrarAgendaLayout);
@@ -204,12 +341,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnMostrarAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_MostrarAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_MostrarAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
-        JBtn_GenerarInforme.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GenerarInforme.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GenerarInforme.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_GenerarInforme.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_GenerarInformeMouseClicked(evt);
+            }
+        });
 
         JLb_BtnGenerarInforme.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGenerarInforme.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGenerarInforme.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGenerarInforme.setText("Generar informe");
 
@@ -228,14 +371,20 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGenerarInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GenerarInforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GenerarInforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
 
-        JBtn_GestProfesores.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_GestProfesores.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_GestProfesores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         JLb_BtnGestProfesores.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnGestProfesores.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnGestProfesores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnGestProfesores.setText("Gestionar profesores");
+        JLb_BtnGestProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLb_BtnGestProfesoresMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JBtn_GestProfesoresLayout = new javax.swing.GroupLayout(JBtn_GestProfesores);
         JBtn_GestProfesores.setLayout(JBtn_GestProfesoresLayout);
@@ -252,12 +401,18 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnGestProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_GestProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_GestProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
-        JBtn_AgregarParticipantes.setBackground(new java.awt.Color(255, 255, 255));
+        JBtn_AgregarParticipantes.setBackground(new java.awt.Color(0, 35, 76));
         JBtn_AgregarParticipantes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_AgregarParticipantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AgregarParticipantesMouseClicked(evt);
+            }
+        });
 
         JLb_BtnAgregarParticipantes.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnAgregarParticipantes.setForeground(new java.awt.Color(255, 255, 255));
         JLb_BtnAgregarParticipantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_BtnAgregarParticipantes.setText("Agregar participantes \na curso");
 
@@ -276,30 +431,748 @@ public class appSashoFrame extends javax.swing.JFrame {
                 .addComponent(JLb_BtnAgregarParticipantes, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        JPan_MenuPrincipal.add(JBtn_AgregarParticipantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
+        JPan_MenuPrincipal.add(JBtn_AgregarParticipantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        JPan_MenuPrincipal.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, -1, -1));
 
         JPan_Contenedor.add(JPan_MenuPrincipal, "card2");
 
-        getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 640, 410));
+        JPan_AgregarAlumnosACursos.setBackground(new java.awt.Color(255, 205, 140));
+        JPan_AgregarAlumnosACursos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPan_Header.setBackground(new java.awt.Color(255, 153, 51));
-        JPan_Header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 51, 255), 3));
+        JCB_SelectCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JPan_AgregarAlumnosACursos.add(JCB_SelectCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 500, 30));
 
-        javax.swing.GroupLayout JPan_HeaderLayout = new javax.swing.GroupLayout(JPan_Header);
-        JPan_Header.setLayout(JPan_HeaderLayout);
-        JPan_HeaderLayout.setHorizontalGroup(
-            JPan_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
+        JBtn_SetCursoSelected.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_SetCursoSelected.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        JLb_BtnSetCursoSelected.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnSetCursoSelected.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnSetCursoSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnSetCursoSelected.setText("Seleccionar Curso");
+
+        javax.swing.GroupLayout JBtn_SetCursoSelectedLayout = new javax.swing.GroupLayout(JBtn_SetCursoSelected);
+        JBtn_SetCursoSelected.setLayout(JBtn_SetCursoSelectedLayout);
+        JBtn_SetCursoSelectedLayout.setHorizontalGroup(
+            JBtn_SetCursoSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_SetCursoSelectedLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnSetCursoSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        JPan_HeaderLayout.setVerticalGroup(
-            JPan_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 84, Short.MAX_VALUE)
+        JBtn_SetCursoSelectedLayout.setVerticalGroup(
+            JBtn_SetCursoSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnSetCursoSelected, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
-        getContentPane().add(JPan_Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 90));
+        JPan_AgregarAlumnosACursos.add(JBtn_SetCursoSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, 30));
+
+        JTable_AgregarAlumnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre y apellido", "DNI", "Teléfono", "¿Participa?"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        JScroll_AgregarAlumnos.setViewportView(JTable_AgregarAlumnos);
+        if (JTable_AgregarAlumnos.getColumnModel().getColumnCount() > 0) {
+            JTable_AgregarAlumnos.getColumnModel().getColumn(0).setResizable(false);
+            JTable_AgregarAlumnos.getColumnModel().getColumn(1).setResizable(false);
+            JTable_AgregarAlumnos.getColumnModel().getColumn(2).setResizable(false);
+            JTable_AgregarAlumnos.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        JPan_AgregarAlumnosACursos.add(JScroll_AgregarAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 720, 330));
+
+        JBtn_SetCursoSelected1.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_SetCursoSelected1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        JLb_BtnSetCursoSelected1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnSetCursoSelected1.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnSetCursoSelected1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnSetCursoSelected1.setText("Agregar Alumnos");
+
+        javax.swing.GroupLayout JBtn_SetCursoSelected1Layout = new javax.swing.GroupLayout(JBtn_SetCursoSelected1);
+        JBtn_SetCursoSelected1.setLayout(JBtn_SetCursoSelected1Layout);
+        JBtn_SetCursoSelected1Layout.setHorizontalGroup(
+            JBtn_SetCursoSelected1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnSetCursoSelected1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+        );
+        JBtn_SetCursoSelected1Layout.setVerticalGroup(
+            JBtn_SetCursoSelected1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnSetCursoSelected1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarAlumnosACursos.add(JBtn_SetCursoSelected1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 190, 30));
+
+        JPan_Contenedor.add(JPan_AgregarAlumnosACursos, "card3");
+
+        JPan_AgregarTurno1.setBackground(new java.awt.Color(255, 205, 140));
+        JPan_AgregarTurno1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("3");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 30, 30));
+
+        jTextField2.setBackground(new java.awt.Color(0, 35, 76));
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setText("1");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 30, 30));
+
+        jTextField3.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setText("2");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 30, 30));
+        JPan_AgregarTurno1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, 20));
+        JPan_AgregarTurno1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 170, 20));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("CONFIRMAR");
+        JPan_AgregarTurno1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText(" HORARIOS ");
+        JPan_AgregarTurno1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("  DATOS  ");
+        JPan_AgregarTurno1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+
+        dateChooser1.setForeground(new java.awt.Color(0, 35, 76));
+        JPan_AgregarTurno1.add(dateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 260, -1));
+
+        JBtn_SiguienteAT1.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_SiguienteAT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_SiguienteAT1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_SiguienteAT1MouseClicked(evt);
+            }
+        });
+
+        JLb_BtnSiguienteAT1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnSiguienteAT1.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnSiguienteAT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnSiguienteAT1.setText("Siguiente");
+        JLb_BtnSiguienteAT1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLb_BtnSiguienteAT1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JBtn_SiguienteAT1Layout = new javax.swing.GroupLayout(JBtn_SiguienteAT1);
+        JBtn_SiguienteAT1.setLayout(JBtn_SiguienteAT1Layout);
+        JBtn_SiguienteAT1Layout.setHorizontalGroup(
+            JBtn_SiguienteAT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_SiguienteAT1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnSiguienteAT1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JBtn_SiguienteAT1Layout.setVerticalGroup(
+            JBtn_SiguienteAT1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnSiguienteAT1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarTurno1.add(JBtn_SiguienteAT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 140, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setText("<html><p>Seleccione el día deseado en el calendario y la hora inicial en el reloj<p></html>");
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        JPan_AgregarTurno1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 260, 70));
+
+        tPick_HoraInicio.setForeground(new java.awt.Color(0, 35, 76));
+        jTabbedPane1.addTab("Hora de Inicio", tPick_HoraInicio);
+
+        tPick_HoraFin.setForeground(new java.awt.Color(0, 35, 76));
+        jTabbedPane1.addTab("Hora de Fin", tPick_HoraFin);
+
+        JPan_AgregarTurno1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
+
+        JPan_Contenedor.add(JPan_AgregarTurno1, "card4");
+
+        JPan_AgregarTurno2.setBackground(new java.awt.Color(255, 205, 140));
+        JPan_AgregarTurno2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField4.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField4.setText("3");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 30, 30));
+
+        jTextField5.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setText("1");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 30, 30));
+
+        jTextField6.setBackground(new java.awt.Color(0, 35, 76));
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField6.setText("2");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 30, 30));
+        JPan_AgregarTurno2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, 20));
+        JPan_AgregarTurno2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 170, 20));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("CONFIRMAR");
+        JPan_AgregarTurno2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText(" HORARIOS ");
+        JPan_AgregarTurno2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("  DATOS  ");
+        JPan_AgregarTurno2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+
+        JBtn_AnteriorAT2.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_AnteriorAT2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_AnteriorAT2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AnteriorAT2MouseClicked(evt);
+            }
+        });
+
+        JLb_BtnAnteriorAT3.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnAnteriorAT3.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnAnteriorAT3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnAnteriorAT3.setText("Anterior");
+
+        javax.swing.GroupLayout JBtn_AnteriorAT2Layout = new javax.swing.GroupLayout(JBtn_AnteriorAT2);
+        JBtn_AnteriorAT2.setLayout(JBtn_AnteriorAT2Layout);
+        JBtn_AnteriorAT2Layout.setHorizontalGroup(
+            JBtn_AnteriorAT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_AnteriorAT2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnAnteriorAT3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JBtn_AnteriorAT2Layout.setVerticalGroup(
+            JBtn_AnteriorAT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnAnteriorAT3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarTurno2.add(JBtn_AnteriorAT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 140, 30));
+
+        JBtn_SiguienteAT2.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_SiguienteAT2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_SiguienteAT2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_SiguienteAT2MouseClicked(evt);
+            }
+        });
+
+        JLb_BtnSiguienteAT2.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnSiguienteAT2.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnSiguienteAT2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnSiguienteAT2.setText("Siguiente");
+
+        javax.swing.GroupLayout JBtn_SiguienteAT2Layout = new javax.swing.GroupLayout(JBtn_SiguienteAT2);
+        JBtn_SiguienteAT2.setLayout(JBtn_SiguienteAT2Layout);
+        JBtn_SiguienteAT2Layout.setHorizontalGroup(
+            JBtn_SiguienteAT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_SiguienteAT2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnSiguienteAT2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JBtn_SiguienteAT2Layout.setVerticalGroup(
+            JBtn_SiguienteAT2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnSiguienteAT2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarTurno2.add(JBtn_SiguienteAT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 140, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Costo:        $");
+        JPan_AgregarTurno2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 80, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setText("DNI Cliente:");
+        JPan_AgregarTurno2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 80, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Tipo de Servicio: ");
+        JPan_AgregarTurno2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 110, -1));
+
+        jCB_Servicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JPan_AgregarTurno2.add(jCB_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 230, -1));
+
+        jSpin_CostoAT2.setModel(new javax.swing.SpinnerNumberModel(500, 0, null, 100));
+        JPan_AgregarTurno2.add(jSpin_CostoAT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 210, -1));
+
+        JTF_DNIBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_DNIBuscarActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno2.add(JTF_DNIBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 480, -1));
+
+        jBut_BuscCliente.setText("Buscar");
+        jBut_BuscCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBut_BuscClienteActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno2.add(jBut_BuscCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, -1, -1));
+
+        jLab_ApeBusc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLab_ApeBusc.setForeground(new java.awt.Color(102, 102, 102));
+        jLab_ApeBusc.setText("-");
+        JPan_AgregarTurno2.add(jLab_ApeBusc, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 220, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel25.setText("Apellido:");
+        JPan_AgregarTurno2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 70, -1));
+        JPan_AgregarTurno2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 690, 10));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel26.setText("Nombre: ");
+        JPan_AgregarTurno2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 70, -1));
+
+        jLab_NombreBusc.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLab_NombreBusc.setForeground(new java.awt.Color(102, 102, 102));
+        jLab_NombreBusc.setText("-");
+        JPan_AgregarTurno2.add(jLab_NombreBusc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 220, -1));
+
+        JPan_Contenedor.add(JPan_AgregarTurno2, "card5");
+
+        JPan_AgregarTurno3.setBackground(new java.awt.Color(255, 205, 140));
+        JPan_AgregarTurno3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField7.setBackground(new java.awt.Color(0, 35, 76));
+        jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField7.setText("3");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 30, 30));
+
+        jTextField8.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField8.setText("1");
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 30, 30));
+
+        jTextField9.setBackground(new java.awt.Color(102, 102, 102));
+        jTextField9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField9.setText("2");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        JPan_AgregarTurno3.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 30, 30));
+        JPan_AgregarTurno3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, 20));
+        JPan_AgregarTurno3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 170, 20));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("CONFIRMAR");
+        JPan_AgregarTurno3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText(" HORARIOS ");
+        JPan_AgregarTurno3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("  DATOS  ");
+        JPan_AgregarTurno3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, -1));
+
+        JBtn_SiguienteAT3.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_SiguienteAT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_SiguienteAT3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_SiguienteAT3MouseClicked(evt);
+            }
+        });
+
+        JLb_BtnFinalizarAT3.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnFinalizarAT3.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnFinalizarAT3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnFinalizarAT3.setText("Finalizar");
+
+        javax.swing.GroupLayout JBtn_SiguienteAT3Layout = new javax.swing.GroupLayout(JBtn_SiguienteAT3);
+        JBtn_SiguienteAT3.setLayout(JBtn_SiguienteAT3Layout);
+        JBtn_SiguienteAT3Layout.setHorizontalGroup(
+            JBtn_SiguienteAT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_SiguienteAT3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnFinalizarAT3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JBtn_SiguienteAT3Layout.setVerticalGroup(
+            JBtn_SiguienteAT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnFinalizarAT3, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarTurno3.add(JBtn_SiguienteAT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 140, 30));
+
+        completeCosto.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeCosto.setForeground(new java.awt.Color(102, 102, 102));
+        completeCosto.setText("-");
+        JPan_AgregarTurno3.add(completeCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 460, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setText("Nombre: ");
+        JPan_AgregarTurno3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 70, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setText("Apellido:");
+        JPan_AgregarTurno3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 70, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setText("Día del turno:");
+        JPan_AgregarTurno3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 150, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel22.setText("Hora de inicio:");
+        JPan_AgregarTurno3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 180, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel23.setText("Costo:");
+        JPan_AgregarTurno3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 200, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel24.setText("Hora de fin:");
+        JPan_AgregarTurno3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 170, -1));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel27.setText("Tipo de Servicio:");
+        JPan_AgregarTurno3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 170, -1));
+
+        JBtn_AnteriorAT3.setBackground(new java.awt.Color(0, 35, 76));
+        JBtn_AnteriorAT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        JBtn_AnteriorAT3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AnteriorAT3MouseClicked(evt);
+            }
+        });
+
+        JLb_BtnAnteriorAT4.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        JLb_BtnAnteriorAT4.setForeground(new java.awt.Color(255, 255, 255));
+        JLb_BtnAnteriorAT4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnAnteriorAT4.setText("Anterior");
+
+        javax.swing.GroupLayout JBtn_AnteriorAT3Layout = new javax.swing.GroupLayout(JBtn_AnteriorAT3);
+        JBtn_AnteriorAT3.setLayout(JBtn_AnteriorAT3Layout);
+        JBtn_AnteriorAT3Layout.setHorizontalGroup(
+            JBtn_AnteriorAT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JBtn_AnteriorAT3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JLb_BtnAnteriorAT4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        JBtn_AnteriorAT3Layout.setVerticalGroup(
+            JBtn_AnteriorAT3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnAnteriorAT4, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
+        JPan_AgregarTurno3.add(JBtn_AnteriorAT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 140, 30));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel28.setText("ID:");
+        JPan_AgregarTurno3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 70, -1));
+
+        completeID.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeID.setForeground(new java.awt.Color(102, 102, 102));
+        completeID.setText("-");
+        JPan_AgregarTurno3.add(completeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 370, -1));
+
+        completeNombre.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeNombre.setForeground(new java.awt.Color(102, 102, 102));
+        completeNombre.setText("-");
+        JPan_AgregarTurno3.add(completeNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 370, -1));
+
+        completeApe.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeApe.setForeground(new java.awt.Color(102, 102, 102));
+        completeApe.setText("-");
+        JPan_AgregarTurno3.add(completeApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 380, -1));
+
+        completeDia.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeDia.setForeground(new java.awt.Color(102, 102, 102));
+        completeDia.setText("-");
+        JPan_AgregarTurno3.add(completeDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 380, -1));
+
+        completehinicio.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completehinicio.setForeground(new java.awt.Color(102, 102, 102));
+        completehinicio.setText("-");
+        JPan_AgregarTurno3.add(completehinicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 390, -1));
+
+        completeHFin.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeHFin.setForeground(new java.awt.Color(102, 102, 102));
+        completeHFin.setText("-");
+        JPan_AgregarTurno3.add(completeHFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 410, -1));
+
+        completeTServicio.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        completeTServicio.setForeground(new java.awt.Color(102, 102, 102));
+        completeTServicio.setText("-");
+        JPan_AgregarTurno3.add(completeTServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 420, -1));
+
+        JPan_Contenedor.add(JPan_AgregarTurno3, "card6");
+
+        getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void JBtn_GestCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_GestCursosMouseClicked
+        // TODO add your handling code here:
+        JDConst.setVisible(true);
+    }//GEN-LAST:event_JBtn_GestCursosMouseClicked
+
+    private void JLb_BtnGestTurnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_BtnGestTurnosMouseClicked
+        // TODO add your handling code here:
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarTurno1);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JLb_BtnGestTurnosMouseClicked
+
+    private void JBtn_GestAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_GestAlumnosMouseClicked
+        // TODO add your handling code here:
+        JDConst.setVisible(true);
+
+    }//GEN-LAST:event_JBtn_GestAlumnosMouseClicked
+
+    private void JLb_BtnMostrarAgendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_BtnMostrarAgendaMouseClicked
+        // TODO add your handling code here:
+        JDConst.setVisible(true);
+
+    }//GEN-LAST:event_JLb_BtnMostrarAgendaMouseClicked
+
+    private void JBtn_GestClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_GestClientesMouseClicked
+        // TODO add your handling code here:
+        JDConst.setVisible(true);
+
+    }//GEN-LAST:event_JBtn_GestClientesMouseClicked
+
+    private void JLb_BtnGestProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_BtnGestProfesoresMouseClicked
+        JDConst.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLb_BtnGestProfesoresMouseClicked
+
+    private void JBtn_RecomendarCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_RecomendarCursosMouseClicked
+        JDConst.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_RecomendarCursosMouseClicked
+
+    private void JBtn_GenerarInformeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_GenerarInformeMouseClicked
+        JDConst.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_GenerarInformeMouseClicked
+
+    private void JBtn_AgregarParticipantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AgregarParticipantesMouseClicked
+        // TODO add your handling code here:
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarAlumnosACursos);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AgregarParticipantesMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JDNoExiste.setVisible(true);
+        int rs = JDNoExiste.getReturnStatus();
+        if(rs==1) JDConst.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JTF_DNIBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_DNIBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_DNIBuscarActionPerformed
+
+    private void jBut_BuscClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBut_BuscClienteActionPerformed
+        // TODO add your handling code here:
+        jLab_NombreBusc.setText("reemplazar");
+        jLab_ApeBusc.setText("reemplazar");
+
+    }//GEN-LAST:event_jBut_BuscClienteActionPerformed
+
+    private void JLb_BtnSiguienteAT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_BtnSiguienteAT1MouseClicked
+        // TODO add your handling code here:
+        String hInicio = tPick_HoraInicio.getSelectedTime();        
+        String hFin = tPick_HoraFin.getSelectedTime();
+        SelectedDate date = dateChooser1.getSelectedDate();
+        String fecha = date.getDay()+"/"+date.getMonth()+"/"+date.getYear();
+        completeDia.setText(fecha);
+        completeHFin.setText(hFin);
+        completehinicio.setText(hInicio);
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarTurno2);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+        
+    }//GEN-LAST:event_JLb_BtnSiguienteAT1MouseClicked
+
+    private void JBtn_AnteriorAT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AnteriorAT2MouseClicked
+        // TODO add your handling code here:
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarTurno1);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AnteriorAT2MouseClicked
+
+    private void JBtn_SiguienteAT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_SiguienteAT2MouseClicked
+        // TODO add your handling code here:
+        completeID.setText(JTF_DNIBuscar.getText());
+        completeNombre.setText(jLab_NombreBusc.getText());
+        completeApe.setText(jLab_ApeBusc.getText());
+        completeCosto.setText("$"+jSpin_CostoAT2.getValue());
+        completeTServicio.setText(jCB_Servicio.getSelectedItem().toString());
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarTurno3);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_SiguienteAT2MouseClicked
+
+    private void JBtn_AnteriorAT3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AnteriorAT3MouseClicked
+        // TODO add your handling code here:
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AgregarTurno2);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AnteriorAT3MouseClicked
+
+    private void JBtn_SiguienteAT3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_SiguienteAT3MouseClicked
+        // TODO add your handling code here:
+        JDAddExito.setVisible(true);
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_MenuPrincipal);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_SiguienteAT3MouseClicked
+
+    private void JBtn_SiguienteAT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_SiguienteAT1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JBtn_SiguienteAT1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -343,6 +1216,8 @@ public class appSashoFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JBtn_AgregarParticipantes;
+    private javax.swing.JPanel JBtn_AnteriorAT2;
+    private javax.swing.JPanel JBtn_AnteriorAT3;
     private javax.swing.JPanel JBtn_GenerarInforme;
     private javax.swing.JPanel JBtn_GestAlumnos;
     private javax.swing.JPanel JBtn_GestClientes;
@@ -351,7 +1226,16 @@ public class appSashoFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JBtn_GestTurnos;
     private javax.swing.JPanel JBtn_MostrarAgenda;
     private javax.swing.JPanel JBtn_RecomendarCursos;
+    private javax.swing.JPanel JBtn_SetCursoSelected;
+    private javax.swing.JPanel JBtn_SetCursoSelected1;
+    private javax.swing.JPanel JBtn_SiguienteAT1;
+    private javax.swing.JPanel JBtn_SiguienteAT2;
+    private javax.swing.JPanel JBtn_SiguienteAT3;
+    private javax.swing.JComboBox<String> JCB_SelectCurso;
     private javax.swing.JLabel JLb_BtnAgregarParticipantes;
+    private javax.swing.JLabel JLb_BtnAnteriorAT3;
+    private javax.swing.JLabel JLb_BtnAnteriorAT4;
+    private javax.swing.JLabel JLb_BtnFinalizarAT3;
     private javax.swing.JLabel JLb_BtnGenerarInforme;
     private javax.swing.JLabel JLb_BtnGestAlumnos;
     private javax.swing.JLabel JLb_BtnGestClientes;
@@ -360,8 +1244,77 @@ public class appSashoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_BtnGestTurnos;
     private javax.swing.JLabel JLb_BtnMostrarAgenda;
     private javax.swing.JLabel JLb_BtnRecomendarCursos;
+    private javax.swing.JLabel JLb_BtnSetCursoSelected;
+    private javax.swing.JLabel JLb_BtnSetCursoSelected1;
+    private javax.swing.JLabel JLb_BtnSiguienteAT1;
+    private javax.swing.JLabel JLb_BtnSiguienteAT2;
+    private javax.swing.JPanel JPan_AgregarAlumnosACursos;
+    private javax.swing.JPanel JPan_AgregarTurno1;
+    private javax.swing.JPanel JPan_AgregarTurno2;
+    private javax.swing.JPanel JPan_AgregarTurno3;
     private javax.swing.JPanel JPan_Contenedor;
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_MenuPrincipal;
+    private javax.swing.JScrollPane JScroll_AgregarAlumnos;
+    private javax.swing.JTextField JTF_DNIBuscar;
+    private javax.swing.JTable JTable_AgregarAlumnos;
+    private javax.swing.JLabel completeApe;
+    private javax.swing.JLabel completeCosto;
+    private javax.swing.JLabel completeDia;
+    private javax.swing.JLabel completeHFin;
+    private javax.swing.JLabel completeID;
+    private javax.swing.JLabel completeNombre;
+    private javax.swing.JLabel completeTServicio;
+    private javax.swing.JLabel completehinicio;
+    private com.raven.datechooser.DateChooser dateChooser1;
+    private javax.swing.JButton jBut_BuscCliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jCB_Servicio;
+    private javax.swing.JLabel jLab_ApeBusc;
+    private javax.swing.JLabel jLab_NombreBusc;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSpinner jSpin_CostoAT2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private com.raven.swing.TimePicker tPick_HoraFin;
+    private com.raven.swing.TimePicker tPick_HoraInicio;
     // End of variables declaration//GEN-END:variables
 }
