@@ -10,19 +10,19 @@ package com.mycompany.appSasho.capaLogica;
  */
 public class Turno {
     
-    private int codTurno;
+    private String codTurno;
     private int tipoServicio;
     private float costo;
     Horario horario;
 
-    public Turno(int codTurno, int tipoServicio, float costo, Horario horario) {
+    public Turno(String codTurno, int tipoServicio, float costo, Horario horario) {
         this.codTurno = codTurno;
         this.tipoServicio = tipoServicio;
         this.costo = costo;
         this.horario = horario;
     }
 
-    public int getCodTurno() {
+    public String getCodTurno() {
         return codTurno;
     }
 
@@ -38,7 +38,7 @@ public class Turno {
         return horario;
     }
 
-    public void setCodTurno(int codTurno) {
+    public void setCodTurno(String codTurno) {
         this.codTurno = codTurno;
     }
     
