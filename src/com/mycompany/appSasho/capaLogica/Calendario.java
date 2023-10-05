@@ -10,6 +10,20 @@ package com.mycompany.appSasho.capaLogica;
  */
 public class Calendario {
     
+    private static Calendario instanciaCalendario = null;
+    private List<Horario> = 
     
+    
+    private static void createCalendario(){
+        
+        instanciaCalendario = new Calendario();
+        
+    }
+    
+    public static Calendario getInstance(){
+        
+        
+        
+    }
     
 }

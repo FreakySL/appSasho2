@@ -4,8 +4,8 @@
  */
 package com.mycompany.appSasho.capaLogica;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 /**
  *
@@ -14,11 +14,11 @@ import java.time.LocalTime;
 public class Horario {
     
     private String codHorario;
-    private LocalDate fecha;
+    private Date fecha;
     private LocalTime horaInicio;
     private LocalTime horaFin;
 
-    public Horario(String codHorario, LocalDate fecha, LocalTime horaInicio, LocalTime horaFin) {
+    public Horario(String codHorario,Date fecha, LocalTime horaInicio, LocalTime horaFin) {
         this.codHorario = codHorario;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
@@ -29,7 +29,7 @@ public class Horario {
         return codHorario;
     }
     
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -45,7 +45,7 @@ public class Horario {
         this.codHorario = codHorario;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

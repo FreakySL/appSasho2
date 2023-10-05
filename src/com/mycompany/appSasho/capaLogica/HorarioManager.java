@@ -4,13 +4,12 @@
  */
 package com.mycompany.appSasho.capaLogica;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import com.mycompany.appSasho.capaDatos.HorarioDAOImpPostgres;
 import java.sql.SQLException;
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,35 +18,27 @@ import java.util.List;
  */
 public class HorarioManager {
     
-    public void agregarHorario(String codHorario,LocalDate fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
+    
+    private static final HorarioDAOImpPostgres horarioDAO = new HorarioDAOImpPostgres();
+    
+    public void agregarHorario(String codHorario,Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
         
         Horario horario = new Horario(codHorario, fechaHorario, horaInicioHorario, horaFinHorario);
         
         if (!seSolapa(horario)){
             
-            String comando = "INSERT INTO Horarios (h_id, h_fecha, h_horaInicio, h_horaFin) VALUES (?,?,?,?);";
-            PreparedStatement pQuery = DBConnection.conn.prepareStatement(comando);
-            
-            java.sql.Date fechaSql = new java.sql.Date(fechaHorario.);
-
-            new java.sql.Date
-            
-            pQuery.setString(1,codHorario);
-            pQuery.setDate(2,fechaSql);
-            pQuery.setString(3,horaInicioHorario);
-            pQuery.setString(4,horaFinHorario);
-            
+            horarioDAO.create(codHorario, fechaHorario, horaInicioHorario, horaFinHorario);
             
         }
         
         
     }
     
-    public boolean seSolapa(Horario nuevoHorario) throws SQLException {
+    private boolean seSolapa(Horario nuevoHorario) throws SQLException {
         
         List <Horario> horarios;
         
-        horarios = HorarioDAOImpPostgres.obtenerHorariosPorDia(nuevoHorario.getFecha());
+        horarios = HorarioDAOImpPostgres.obtenerHorariosPorDia((Date) nuevoHorario.getFecha());
         
         for (Horario horarioExistente : horarios) {
             if (!nuevoHorario.getHoraFin().isBefore(horarioExistente.getHoraInicio()) &&

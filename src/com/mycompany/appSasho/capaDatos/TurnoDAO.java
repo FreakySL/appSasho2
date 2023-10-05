@@ -6,6 +6,7 @@ package com.mycompany.appSasho.capaDatos;
 
 import com.mycompany.appSasho.capaLogica.Turno;
 import java.util.List;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,8 +14,8 @@ import java.util.List;
  */
 public interface TurnoDAO {
     
-    public void create(Turno a,String codCliente);
-    public List<Turno> read();
+    public void create(String codTurno,int tipoServicio, float costo, int codCliente, String codHorario) throws SQLException;
+    public List<Turno> read() throws SQLException;
     public void delete(int codTurno);
     public void update(Turno a);
     
