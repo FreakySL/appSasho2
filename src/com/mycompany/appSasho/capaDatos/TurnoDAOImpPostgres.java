@@ -25,16 +25,16 @@ public class TurnoDAOImpPostgres implements TurnoDAO{
     
     
     @Override
-    public void create(String codTurno,int tipoServicio, float costo, int codCliente, String codHorario) throws SQLException{
+    public void create(Turno turno) throws SQLException{
         
         String comando = "INSERT INTO Turnos (t_id, t_tipo, t_costo, per_IDCliente, h_id) VALUES (?,?,?,?,?);";
             PreparedStatement pQuery = DBConnection.conn.prepareStatement(comando);
             
-            pQuery.setString(1,codTurno);
-            pQuery.setInt(2,tipoServicio);
-            pQuery.setFloat(3,costo);
-            pQuery.setInt(4,codCliente);
-            pQuery.setString(5,codHorario);
+            pQuery.setString(1,turno.getCodTurno());
+            pQuery.setInt(2,turno.getTipoServicio());
+            pQuery.setFloat(3,turno.getCosto());
+            pQuery.setInt(4,turno.getCodCliente());
+            pQuery.setString(5,turno.getCodHorario());
             
             
             pQuery.executeUpdate();
@@ -63,42 +63,53 @@ public class TurnoDAOImpPostgres implements TurnoDAO{
                     tipoServicio = resultSet.getInt("t_tipo");
                     costo = resultSet.getFloat("t_costo");
                     codCliente = resultSet.getInt("per_IDCliente");
-                    codHorario = resultSet.getString("h_id").;
-                    Horario horario = new Horario(id, fecha, horaInicio, horaFin);
-                    horarios.add(horario);
+                    codHorario = resultSet.getString("h_id");
+                    Turno turno = new Turno(codTurno, tipoServicio, costo, codCliente, codHorario);
+                    turnos.add(turno);
                 }
             }
         }
-        return horarios;   
+        return turnos;   
     }
     
     
-    public Horario readOne(String idConsulta) throws SQLException{
+    public Turno readOne(String idConsulta) throws SQLException{
         
-        String id;
-        Date fecha;
-        LocalTime horaInicio;
-        LocalTime horaFin;
+        String codTurno;
+        int tipoServicio; 
+        float costo;
+        int codCliente;
+        String codHorario;
         
-        String sql = "SELECT h_id, h_fecha, h_horaInicio, h_horaFin FROM Turno WHERE h_id = ?";
+        String sql = "SELECT t_id, t_tipo, t_costo, per_IDCliente, h_id FROM Turnos WHERE h_id = ?";
         try (PreparedStatement statement = DBConnection.conn.prepareStatement(sql)) {
             statement.setString(1, idConsulta);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     
-                    id = resultSet.getString("h_id");
-                    fecha = resultSet.getDate("fecha");
-                    horaInicio = resultSet.getTime("hora_inicio").toLocalTime();
-                    horaFin = resultSet.getTime("hora_fin").toLocalTime();
-                    Horario horario = new Horario(id, fecha, horaInicio, horaFin);
+                    codTurno = resultSet.getString("t_id");
+                    tipoServicio = resultSet.getInt("t_tipo");
+                    costo = resultSet.getFloat("t_costo");
+                    codCliente = resultSet.getInt("per_IDCliente");
+                    codHorario = resultSet.getString("h_id");
+                    Turno turno = new Turno(codTurno, tipoServicio, costo, codCliente, codHorario);
 
-                    return horario;
+                    return turno;
                 }
             }
         }
         return null;
     }
-    public void delete(int codTurno);
-    public void update(Turno a);
+
+    @Override
+    public void delete(int codTurno) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(Turno a) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     
 }

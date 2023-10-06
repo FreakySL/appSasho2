@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public interface TurnoDAO {
     
-    public void create(String codTurno,int tipoServicio, float costo, int codCliente, String codHorario) throws SQLException;
+    public void create(Turno turno) throws SQLException;
     public List<Turno> read() throws SQLException;
     public void delete(int codTurno);
     public void update(Turno a);

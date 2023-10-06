@@ -24,17 +24,17 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
     
     
     @Override
-    public void create(String codHorario,Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
+    public void create(Horario horario) throws SQLException{
         
         String comando = "INSERT INTO Horarios (h_id, h_fecha, h_horaInicio, h_horaFin) VALUES (?,?,?,?);";
             PreparedStatement pQuery = DBConnection.conn.prepareStatement(comando);
             
-            java.sql.Date fechaSql = new java.sql.Date(fechaHorario.getTime());
+            java.sql.Date fechaSql = new java.sql.Date(horario.getFecha().getTime());
             
-            Time horaInicioSQL = Time.valueOf(horaInicioHorario);
-            Time horaFinSQL = Time.valueOf(horaFinHorario);
+            Time horaInicioSQL = Time.valueOf(horario.getHoraInicio());
+            Time horaFinSQL = Time.valueOf(horario.getHoraFin());
             
-            pQuery.setString(1,codHorario);
+            pQuery.setString(1,horario.getCodHorario());
             pQuery.setDate(2,fechaSql);
             pQuery.setTime(3,horaInicioSQL);
             pQuery.setTime(4,horaFinSQL);

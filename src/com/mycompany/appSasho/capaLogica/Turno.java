@@ -13,13 +13,15 @@ public class Turno {
     private String codTurno;
     private int tipoServicio;
     private float costo;
-    Horario horario;
+    private int codCliente;
+    private String codHorario;
 
-    public Turno(String codTurno, int tipoServicio, float costo, Horario horario) {
+    public Turno(String codTurno, int tipoServicio, float costo, int codCliente, String codHorario) {
         this.codTurno = codTurno;
         this.tipoServicio = tipoServicio;
         this.costo = costo;
-        this.horario = horario;
+        this.codCliente = codCliente;
+        this.codHorario = codHorario;
     }
 
     public String getCodTurno() {
@@ -34,8 +36,12 @@ public class Turno {
         return costo;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public int getCodCliente() {
+        return codCliente;
+    }
+
+    public String getCodHorario() {
+        return codHorario;
     }
 
     public void setCodTurno(String codTurno) {
@@ -50,10 +56,11 @@ public class Turno {
         this.costo = costo;
     }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    public void setCodCliente(int codCliente) {
+        this.codCliente = codCliente;
     }
-   
-    
-    
+
+    public void setCodHorario(String codHorario) {
+        this.codHorario = codHorario;
+    }
 }

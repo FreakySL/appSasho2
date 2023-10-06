@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface HorarioDAO {
     
-    public void create(String codHorario,Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException;
+    public void create(Horario horario) throws SQLException;
     public List<Horario> read() throws SQLException;
     public void delete(int codHorario);
     public void update(Horario a);
