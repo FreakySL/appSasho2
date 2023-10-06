@@ -101,7 +101,7 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
     }
     
     
-    public static List<Horario> obtenerHorariosPorDia(Date diaEspecifico) throws SQLException {
+    public static List<Horario> obtenerHorariosPorDia(java.util.Date diaEspecifico) throws SQLException {
         List<Horario> horarios = new ArrayList<>();
         
         String id;
@@ -127,6 +127,24 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
             }
         }
         return horarios;
+    }
+    
+    public static String obtenerUltimoCodigoHorario () throws SQLException {
+        String id = null;
+        String sql = "SELECT MAX(h_id) FROM Horarios;";
+        
+        try (Statement query = DBConnection.conn.createStatement()) {
+
+            try (ResultSet resultSet = query.executeQuery(sql)) {
+                while (resultSet.next()) {
+                    
+                    id = resultSet.getString("max");
+
+                }
+            }
+        }
+        
+        return id;
     }
 
 

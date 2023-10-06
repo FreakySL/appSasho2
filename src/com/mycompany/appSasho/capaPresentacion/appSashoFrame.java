@@ -5,8 +5,11 @@
 package com.mycompany.appSasho.capaPresentacion;
 
 import com.mycompany.appSasho.capaLogica.DBConnection;
+import com.mycompany.appSasho.capaLogica.*;
 import com.raven.datechooser.SelectedDate;
 import java.sql.SQLException;
+import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1052,6 +1055,8 @@ public class appSashoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         JPan_Contenedor.removeAll();
         JPan_Contenedor.add(JPan_AgregarTurno1);
+        tPick_HoraInicio.set24hourMode(true);
+        tPick_HoraFin.set24hourMode(true);
         JPan_Contenedor.repaint();
         JPan_Contenedor.revalidate();
     }//GEN-LAST:event_JLb_BtnGestTurnosMouseClicked
@@ -1128,6 +1133,42 @@ public class appSashoFrame extends javax.swing.JFrame {
         JPan_Contenedor.add(JPan_AgregarTurno2);
         JPan_Contenedor.repaint();
         JPan_Contenedor.revalidate();
+
+        // Extraer los valores de SelectedDate
+        int year = date.getYear();
+        int month = date.getMonth();
+        int day = date.getDay();
+
+        // Crear un objeto Date utilizando un Calendar
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month - 1); // Los meses en Calendar van de 0 a 11, por lo que debes restar 1
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+
+        Date convertedDate = calendar.getTime();
+        
+        String auxInicioHora = ""+hInicio.charAt(0)+""+hInicio.charAt(1);
+        String auxInicioMinuto = ""+hInicio.charAt(3)+""+hInicio.charAt(4);
+        
+        String auxFinHora = ""+hFin.charAt(0)+""+hFin.charAt(1);
+        String auxFinMinuto = ""+hFin.charAt(3)+""+hFin.charAt(4);
+        
+        int horaIn = Integer.parseInt(auxInicioHora);
+        int minutoIn = Integer.parseInt(auxInicioMinuto);
+        
+        int horaFn = Integer.parseInt(auxFinHora);
+        int minutoFn = Integer.parseInt(auxFinMinuto);
+        
+        LocalTime localTimeInicio = LocalTime.of(horaIn, minutoIn);
+        LocalTime localTimeFin = LocalTime.of(horaFn, minutoFn);
+        
+        System.out.println(localTimeInicio.toString());
+        
+        try {
+            HorarioManager.agregarHorario(convertedDate, localTimeInicio, localTimeFin);
+        } catch (SQLException ex) {
+            Logger.getLogger(appSashoFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_JLb_BtnSiguienteAT1MouseClicked
 
