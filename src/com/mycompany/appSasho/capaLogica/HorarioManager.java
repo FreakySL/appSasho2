@@ -8,7 +8,6 @@ import java.time.LocalTime;
 import com.mycompany.appSasho.capaDatos.HorarioDAOImpPostgres;
 import java.sql.SQLException;
 import java.util.Date;
-import java.sql.Time;
 import java.sql.PreparedStatement;
 import java.util.List;
 
@@ -24,9 +23,13 @@ public class HorarioManager {
 
     public static void agregarHorario(Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
         
+        //LLEGA A ESTA FUNCION
+
         String codHorario = HorarioManager.calcularCodigoHorario();
         Horario horario = new Horario(codHorario, fechaHorario, horaInicioHorario, horaFinHorario);
         
+        
+        System.out.println("Estoy previo a ver si se solapa horario");
         if (!seSolapa(horario)){
             
             horarioDAO.create(horario);

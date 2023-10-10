@@ -1147,6 +1147,8 @@ public class appSashoFrame extends javax.swing.JFrame {
 
         Date convertedDate = calendar.getTime();
         
+        System.out.println(convertedDate.toString());
+        
         String auxInicioHora = ""+hInicio.charAt(0)+""+hInicio.charAt(1);
         String auxInicioMinuto = ""+hInicio.charAt(3)+""+hInicio.charAt(4);
         
@@ -1165,6 +1167,7 @@ public class appSashoFrame extends javax.swing.JFrame {
         System.out.println(localTimeInicio.toString());
         
         try {
+            
             HorarioManager.agregarHorario(convertedDate, localTimeInicio, localTimeFin);
         } catch (SQLException ex) {
             Logger.getLogger(appSashoFrame.class.getName()).log(Level.SEVERE, null, ex);

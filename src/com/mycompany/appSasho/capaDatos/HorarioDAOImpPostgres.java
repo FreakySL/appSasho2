@@ -26,6 +26,8 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
     @Override
     public void create(Horario horario) throws SQLException{
         
+        System.out.println("Llegue al create del dao horarios");
+        
         String comando = "INSERT INTO Horarios (h_id, h_fecha, h_horaInicio, h_horaFin) VALUES (?,?,?,?);";
             PreparedStatement pQuery = DBConnection.conn.prepareStatement(comando);
             
@@ -105,23 +107,24 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
         List<Horario> horarios = new ArrayList<>();
         
         String id;
-        Date fecha;
+        java.util.Date fechaJava;
+        java.sql.Date fechaSql = new java.sql.Date(diaEspecifico.getTime());
         LocalTime horaInicio;
         LocalTime horaFin;
         
         String sql = "SELECT h_id, h_fecha, h_horaInicio, h_horaFin FROM Horarios WHERE DATE(h_fecha) = ?";
         
         try (PreparedStatement statement = DBConnection.conn.prepareStatement(sql)) {
-            statement.setString(1, diaEspecifico.toString());
+            statement.setDate(1, fechaSql);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    
+                
                     id = resultSet.getString("h_id");
-                    fecha = resultSet.getDate("fecha");
+                    fechaJava = resultSet.getDate("fecha");
                     horaInicio = resultSet.getTime("hora_inicio").toLocalTime();
                     horaFin = resultSet.getTime("hora_fin").toLocalTime();
-                    Horario horario = new Horario(id, fecha, horaInicio, horaFin);
+                    Horario horario = new Horario(id, fechaJava, horaInicio, horaFin);
                     horarios.add(horario);
                 }
             }
