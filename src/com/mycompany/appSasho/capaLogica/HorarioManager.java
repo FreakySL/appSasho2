@@ -53,8 +53,6 @@ public class HorarioManager {
                 return true;
             }
             
-            
-            
             if (horaInicio.equals(horarioExistente.getHoraInicio()) && horaFin.isBefore(horarioExistente.getHoraFin())){
                 System.out.println("CASO 2");
                 return true;
@@ -73,8 +71,7 @@ public class HorarioManager {
             }
             
             
-            if (horaInicio.isBefore(horarioExistente.getHoraInicio()) && horaFin.isAfter(horarioExistente.getHoraInicio()) 
-                    && !horaFin.equals(horarioExistente.getHoraInicio())){
+            if (horaInicio.isBefore(horarioExistente.getHoraInicio()) && horaFin.isAfter(horarioExistente.getHoraInicio())){
                 System.out.println("CASO 5");
                 return true;
             }
