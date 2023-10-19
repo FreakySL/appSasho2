@@ -25,6 +25,7 @@ public class appSashoFrame extends javax.swing.JFrame {
     JDialog_VentanaEnConstruccion JDConst = new JDialog_VentanaEnConstruccion(this, true);
     JDialog_clientenoexist JDNoExiste = new JDialog_clientenoexist(this, true);
     JDialog_AgregadoExito JDAddExito = new JDialog_AgregadoExito(this, true);
+    JDialog_HorarioNoDisponible JDHorarioNoDisponible = new JDialog_HorarioNoDisponible(this, true);
 
 
     /**
@@ -1179,6 +1180,11 @@ public class appSashoFrame extends javax.swing.JFrame {
             } else {
                 
                 // El horario que desea ocuparse se solapa con otro del mismo dia
+                
+                JDHorarioNoDisponible.setVisible(true);
+                int rs = JDHorarioNoDisponible.getReturnStatus();
+                if(rs==1) JDHorarioNoDisponible.setVisible(true);
+                
                 System.out.println("El horario que desea ocuparse se solapa con otro del mismo dia");
                 
             }
