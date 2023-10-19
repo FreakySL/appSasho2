@@ -30,26 +30,62 @@ public class HorarioManager {
         
         
         System.out.println("Estoy previo a ver si se solapa horario");
-        if (!seSolapa(horario)){
             
-            horarioDAO.create(horario);
-            // el dao recibe como parametro el objeto completo
-        }
-        
+        horarioDAO.create(horario);
+        // el dao recibe como parametro el objeto completo
+
         
     }
     
-    private static boolean seSolapa(Horario nuevoHorario) throws SQLException {
+    public static boolean seSolapa(java.util.Date fecha, LocalTime horaInicio, LocalTime horaFin) throws SQLException {
         
         List <Horario> horarios;
         
-        horarios = HorarioDAOImpPostgres.obtenerHorariosPorDia(nuevoHorario.getFecha());
+        LocalTime horaFinalDelAnterior;
+        
+        
+        horarios = HorarioDAOImpPostgres.obtenerHorariosPorDia(fecha);
         
         for (Horario horarioExistente : horarios) {
-            if (!nuevoHorario.getHoraFin().isBefore(horarioExistente.getHoraInicio()) &&
-                !nuevoHorario.getHoraInicio().isAfter(horarioExistente.getHoraFin())) {
+            
+            if(horaInicio.equals(horarioExistente.getHoraInicio()) && horaFin.equals(horarioExistente.getHoraFin())){
+                System.out.println("CASO 1");
+                return true;
+            }
+            
+            
+            
+            if (horaInicio.equals(horarioExistente.getHoraInicio()) && horaFin.isBefore(horarioExistente.getHoraFin())){
+                System.out.println("CASO 2");
+                return true;
+            }
+            
+            
+            if (horaFin.equals(horarioExistente.getHoraFin()) && horaInicio.isAfter(horarioExistente.getHoraInicio())){
+                System.out.println("CASO 3");
+                return true;
+            }
+            
+            
+            if (horaInicio.isBefore(horarioExistente.getHoraFin()) && horaFin.isAfter(horarioExistente.getHoraFin())){
+                System.out.println("CASO 4");
+                return true;
+            }
+            
+            
+            if (horaInicio.isBefore(horarioExistente.getHoraInicio()) && horaFin.isAfter(horarioExistente.getHoraInicio()) 
+                    && !horaFin.equals(horarioExistente.getHoraInicio())){
+                System.out.println("CASO 5");
+                return true;
+            }
+            
+            /*
+            if (!horaFin.isBefore(horarioExistente.getHoraInicio()) &&
+                !horaInicio.isAfter(horarioExistente.getHoraFin())) {
                 return true; // Hay solapamiento
             }
+
+            */
         }
         return false; // No hay solapamiento
     }

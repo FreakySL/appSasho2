@@ -121,9 +121,9 @@ public class HorarioDAOImpPostgres implements HorarioDAO{
                 while (resultSet.next()) {
                 
                     id = resultSet.getString("h_id");
-                    fechaJava = resultSet.getDate("fecha");
-                    horaInicio = resultSet.getTime("hora_inicio").toLocalTime();
-                    horaFin = resultSet.getTime("hora_fin").toLocalTime();
+                    fechaJava = resultSet.getDate("h_fecha");
+                    horaInicio = resultSet.getTime("h_horainicio").toLocalTime();
+                    horaFin = resultSet.getTime("h_horafin").toLocalTime();
                     Horario horario = new Horario(id, fechaJava, horaInicio, horaFin);
                     horarios.add(horario);
                 }

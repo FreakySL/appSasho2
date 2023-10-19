@@ -1129,10 +1129,7 @@ public class appSashoFrame extends javax.swing.JFrame {
         completeDia.setText(fecha);
         completeHFin.setText(hFin);
         completehinicio.setText(hInicio);
-        JPan_Contenedor.removeAll();
-        JPan_Contenedor.add(JPan_AgregarTurno2);
-        JPan_Contenedor.repaint();
-        JPan_Contenedor.revalidate();
+        
 
         // Extraer los valores de SelectedDate
         int year = date.getYear();
@@ -1167,8 +1164,24 @@ public class appSashoFrame extends javax.swing.JFrame {
         System.out.println(localTimeInicio.toString());
         
         try {
-            
-            HorarioManager.agregarHorario(convertedDate, localTimeInicio, localTimeFin);
+        
+            System.out.println("Estoy previo a ver si se solapa horario");
+            if (!HorarioManager.seSolapa(convertedDate, localTimeInicio, localTimeFin)){
+
+                HorarioManager.agregarHorario(convertedDate, localTimeInicio, localTimeFin);
+                // el dao recibe como parametro el objeto completo
+                
+                JPan_Contenedor.removeAll();
+                JPan_Contenedor.add(JPan_AgregarTurno2);
+                JPan_Contenedor.repaint();
+                JPan_Contenedor.revalidate();
+                
+            } else {
+                
+                // El horario que desea ocuparse se solapa con otro del mismo dia
+                System.out.println("El horario que desea ocuparse se solapa con otro del mismo dia");
+                
+            }
         } catch (SQLException ex) {
             Logger.getLogger(appSashoFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
