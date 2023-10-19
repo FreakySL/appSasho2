@@ -100,6 +100,24 @@ public class TurnoDAOImpPostgres implements TurnoDAO{
         }
         return null;
     }
+    
+    public static String obtenerUltimoCodigoTurnos () throws SQLException {
+        String id = null;
+        String sql = "SELECT MAX(h_id) FROM Turnos;";
+        
+        try (Statement query = DBConnection.conn.createStatement()) {
+
+            try (ResultSet resultSet = query.executeQuery(sql)) {
+                while (resultSet.next()) {
+                    
+                    id = resultSet.getString("max");
+
+                }
+            }
+        }
+        
+        return id;
+    }
 
     @Override
     public void delete(int codTurno) {

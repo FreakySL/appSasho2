@@ -21,7 +21,7 @@ public class HorarioManager {
     private static final HorarioDAOImpPostgres horarioDAO = new HorarioDAOImpPostgres();
     
 
-    public static void agregarHorario(Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
+    public static String agregarHorario(Date fechaHorario, LocalTime horaInicioHorario, LocalTime horaFinHorario) throws SQLException{
         
         //LLEGA A ESTA FUNCION
 
@@ -34,7 +34,7 @@ public class HorarioManager {
         horarioDAO.create(horario);
         // el dao recibe como parametro el objeto completo
 
-        
+        return codHorario;
     }
     
     public static boolean seSolapa(java.util.Date fecha, LocalTime horaInicio, LocalTime horaFin) throws SQLException {
